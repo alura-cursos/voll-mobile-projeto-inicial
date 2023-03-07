@@ -1,4 +1,4 @@
-import { VStack, Image, Text, Box, Link } from 'native-base'
+import { VStack, Image, Text, Box, Link, Checkbox } from 'native-base'
 import { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import Logo from './assets/Logo.png'
@@ -23,7 +23,8 @@ export default function Login() {
           label: 'Email',
           placeholder: 'Digite seu email'
         },
-      ]
+      ],
+      checkbox: []
     },
     {
       id: 2,
@@ -33,6 +34,22 @@ export default function Login() {
           id: 1,
           label: 'CEP',
           placeholder: 'Digite seu CEP'
+        }
+      ],
+      checkbox: []
+    },
+    {
+      id: 3,
+      titulo: 'Para finalizar, quais são os seus planos?',
+      entradaTexto: [],
+      checkbox: [
+        {
+          id: 1,
+          value: 'Sulamerica'
+        },
+        {
+          id: 2,
+          value: 'Unimed'
         }
       ]
     }
@@ -59,8 +76,17 @@ export default function Login() {
       </Titulo>
       <Box>
         {
-          secoes[numSecao].entradaTexto.map(entrada => {
+          secoes[numSecao]?.entradaTexto?.map(entrada => {
             return <EntradaTexto label={entrada.label} placeholder={entrada.placeholder} key={entrada.id} />
+          })
+        }
+      </Box>
+      <Box>
+        {
+          secoes[numSecao].checkbox.map(checkbox => {
+            return <Checkbox key={checkbox.id} value={checkbox.value}>
+              {checkbox.value}
+            </Checkbox>
           })
         }
       </Box>

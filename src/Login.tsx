@@ -1,6 +1,8 @@
-import { VStack, Image, Text, Box, FormControl,Input, Button, Link } from 'native-base'
+import { VStack, Image, Text, Box, Link } from 'native-base'
 import { TouchableOpacity } from 'react-native';
 import Logo from './assets/Logo.png'
+import { Botao } from './componentes/Botao';
+import { EntradaTexto } from './componentes/EntradaTexto';
 import { Titulo } from './componentes/Titulo';
 
 export default function Login() {
@@ -12,37 +14,16 @@ export default function Login() {
         Faça login em sua conta
       </Titulo>
       <Box>
-        <FormControl mt={3}>
-          <FormControl.Label>Email</FormControl.Label>
-          <Input 
-            placeholder='Insira seu endereço de email'
-            size='lg'
-            w="100%"
-            borderRadius='lg'
-            bgColor='gray.100'
-            shadow={3}
-          />
-        </FormControl>
-        <FormControl mt={3}>
-          <FormControl.Label>Senha</FormControl.Label>
-          <Input 
-            placeholder='Insira sua senha'
-            size='lg'
-            w="100%"
-            borderRadius='lg'
-            bgColor='gray.100'
-            shadow={3}
-          />
-        </FormControl>
+        <EntradaTexto
+          label="Email"
+          placeholder="Insira seu endereço de e-mail"
+        />
+        <EntradaTexto
+          label="Senha"
+          placeholder="Insira sua senha"
+        />
       </Box>
-      <Button
-        w="100%"
-        bg="blue.800"
-        mt={10}
-        borderRadius="lg"
-      >
-        Entrar
-      </Button>
+      <Botao>Entrar</Botao>
 
       <Link href='https://www.alura.com.br' mt={2}>
         Esqueceu sua senha?
@@ -52,7 +33,7 @@ export default function Login() {
         <Text>Ainda não tem cadastro? </Text>
         <TouchableOpacity>
           <Text color="blue.500">
-          Faça seu cadastro!
+            Faça seu cadastro!
           </Text>
         </TouchableOpacity>
       </Box>
